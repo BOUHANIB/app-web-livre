@@ -26,7 +26,7 @@
                 <i>Titre :</i>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                        <span class="input-group-text"> <i class="fa fa-book" aria-hidden="true"></i> </span>
                     </div>
                     <span class="form-control" th:unless="${livre.titre}" th:text="Indisponible"></span>
                     <span class="form-control" th:if="${livre.titre}" th:text="${livre.titre}"></span>
@@ -35,7 +35,7 @@
                 <i>Auteur :</i>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+                        <span class="input-group-text"> <i class="fa fa-user" aria-hidden="true"></i></span>
                     </div>
                     <span class="form-control" th:if="${livre.auteur == null or livre.auteur == ''}"
                           th:text="Indisponible"></span>
@@ -46,7 +46,7 @@
                 <i>Editeur :</i>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+                        <span class="input-group-text"> <i class="fa fa-university" aria-hidden="true"></i> </span>
                     </div>
                     <span class="form-control" th:if="${livre.editeur == null or livre.editeur == ''}"
                           th:text="Indisponible"></span>
@@ -57,7 +57,7 @@
                 <i>Date edition :</i>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+                        <span class="input-group-text"> <i class="fa fa-university" aria-hidden="true"></i></span>
                     </div>
                     <span class="form-control" th:if="${livre.dateEdition == null or livre.dateEdition == ''}"
                           th:text="Indisponible"></span>
@@ -68,7 +68,7 @@
                 <i>Prix :</i>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+                        <span class="input-group-text"> <i class="fa fa-credit-card" aria-hidden="true"></i></span>
                     </div>
                     <span class="form-control" th:if="${livre.prix == null or livre.prix == ''}"
                           th:text="Indisponible"></span>
@@ -76,16 +76,6 @@
                           th:text="${livre.prix}"></span>
                 </div>
 
-                <i>Isbn :</i>
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
-                    </div>
-                    <span class="form-control" th:if="${livre.isbn == null or livre.isbn == ''}"
-                          th:text="Indisponible"></span>
-                    <span class="form-control" th:if="${livre.isbn != null and livre.isbn != ''}"
-                          th:text="${livre.isbn}"></span>
-                </div>
             </div>
         </div>
     </nav>

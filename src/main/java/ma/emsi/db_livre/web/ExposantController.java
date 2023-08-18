@@ -133,9 +133,45 @@ public class ExposantController {
         exposantRepository.save(existingExposant);
 
         // Redirect to the dashboard page after saving the changes
-        return "redirect:/dashboard";
+        return "redirect:/listExposants";
     }
 
+    @PostMapping("/saveUser")
+    public String saveUser(@Valid Exposant exposant, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "formExposants";
+        }
+
+        // Fetch the existing Exposant from the database
+        Exposant existingExposant = exposantRepository.findById(exposant.getExposantId()).orElse(null);
+        if (existingExposant == null) {
+            throw new RuntimeException("Exposant not found");
+        }
+
+
+        if (exposant.getUser() != null) {
+            existingExposant.setNom(exposant.getUser().getUsername());
+        }
+
+        // Update the fields of the existing Exposant with the new values
+        existingExposant.setNom(exposant.getNom().isEmpty() ? null : exposant.getNom());
+        existingExposant.setMail(exposant.getMail().isEmpty() ? null : exposant.getMail());
+        existingExposant.setPays(exposant.getPays().isEmpty() ? null : exposant.getPays());
+        existingExposant.setTelephone(exposant.getTelephone().isEmpty() ? null : exposant.getTelephone());
+        existingExposant.setSiteWeb(exposant.getSiteWeb().isEmpty() ? null : exposant.getSiteWeb());
+        existingExposant.setAdresse(exposant.getAdresse().isEmpty() ? null : exposant.getAdresse());
+        existingExposant.setResponsableSalle(exposant.getResponsableSalle().isEmpty() ? null : exposant.getResponsableSalle());
+        existingExposant.setResponsable(exposant.getResponsable().isEmpty() ? null : exposant.getResponsable());
+        existingExposant.setSpecialite(exposant.getSpecialite().isEmpty() ? null : exposant.getSpecialite());
+        existingExposant.setLocalisation(exposant.getLocalisation().isEmpty() ? null : exposant.getLocalisation());
+        // Update other fields as needed...
+
+        exposantRepository.save(existingExposant);
+
+        // Redirect to the dashboard page after saving the
+        return "redirect:/listExposants";
+    }
 
     @GetMapping("/editExposant")
     public String editExposant(Long id, Model model){ // Modifier le type en String
@@ -151,5 +187,18 @@ public class ExposantController {
         return "editExposant";
     }
 
+    @GetMapping("/editUser")
+    public String editUser(Long id, Model model){ // Modifier le type en String
+        Exposant exposant = exposantRepository.findById(id).orElse(null);
+        if (exposant == null) throw new RuntimeException("Exposant introuvable");
+
+        String currentUsername = exposant.getUser() != null ? exposant.getUser().getUsername() : "";
+
+        model.addAttribute("exposant", exposant);
+        model.addAttribute("currentUsername", currentUsername); // Add the current username to the model
+
+
+        return "editUser";
+    }
 
 }

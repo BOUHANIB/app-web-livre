@@ -21,10 +21,6 @@
                         <h3>Liste des Exposants :</h3>
                     </div>
 
-                    <a th:href="@{/formExposants}" class="btn btn-outline-primary ml-auto">
-                        <i class="fa fa-plus"></i>New Exposant
-                    </a>
-
                 </div>
                 <form method="get" th:action="@{listExposants}">
                     <div class="d-flex align-items-center">
@@ -45,9 +41,8 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nom</th>
+                        <th>Nom d'exposant</th>
                         <th>Pays</th>
-                        <th>mail</th>
                         <th>Email</th>
                         <th>Specialite</th>
                         <th>Localisation</th>
@@ -67,10 +62,6 @@
                         <td>
                             <span th:if="${exposant.pays} != null" th:text="${exposant.pays}"></span>
                             <span th:unless="${exposant.pays}">Indisponible</span>
-                        </td>
-                        <td>
-                            <span th:if="${exposant.mail} != null" th:text="${exposant.mail}"></span>
-                            <span th:unless="${exposant.mail}">Indisponible</span>
                         </td>
                         <td>
                             <span th:if="${exposant.user.email} != null" th:text="${exposant.user.email}"></span>

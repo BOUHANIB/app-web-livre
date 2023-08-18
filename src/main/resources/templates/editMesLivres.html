@@ -25,20 +25,14 @@
                         </a>
                     </div>
 
-                    <i>ID :</i>
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                        </div>
+
                         <input id="id" class="form-control" type="hidden" name="livreId" th:value="${livre.livreId}">
-                        <input class="form-control" type="text" value="" th:value="${livre.livreId}" readonly>
-                    </div>
 
 
                     <i>Titre : (*) Ce champ ne doit pas être vide</i> <span class="text-danger" th:errors="${livre.titre}"></span>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-book" aria-hidden="true"></i> </span>
                         </div>
                         <input id="titre" class="form-control" type="text" name="titre" th:value="${livre.titre}">
                     </div>
@@ -46,7 +40,7 @@
                     <i>Auteur :</i>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-map"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-user" aria-hidden="true"></i></span>
                         </div>
                         <input id="auteur" class="form-control" type="text" name="auteur" th:value="${livre.auteur}">
                         <span class="text-danger" th:errors="${livre.auteur}"></span>
@@ -55,7 +49,7 @@
                     <i>Editeur :</i>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-university" aria-hidden="true"></i> </span>
                         </div>
                         <input id="editeur" class="form-control" type="text" name="editeur" th:value="${livre.editeur}">
                         <span class="text-danger" th:errors="${livre.editeur}"></span>
@@ -64,7 +58,7 @@
                     <i>Date edition :</i>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-university" aria-hidden="true"></i>
                         </div>
                         <input id="dateEdition"  class="form-control" type="date" name="dateEdition" th:value="${livre.dateEdition}">
                         <span class="text-danger" th:errors="${livre.dateEdition}"></span>
@@ -73,21 +67,11 @@
                     <i>Prix :</i>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-globe"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-credit-card" aria-hidden="true"></i> </span>
                         </div>
                         <input id="prix"  class="form-control" type="number" name="prix" th:value="${livre.prix}">
                         <span class="text-danger" th:errors="${livre.prix}"></span>
                     </div>
-
-                    <i>Isbn :</i>
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-home"></i> </span>
-                        </div>
-                        <input  id="isbn" class="form-control" type="text" name="isbn" th:value="${livre.isbn}">
-                        <span class="text-danger" th:errors="${livre.isbn}"></span>
-                    </div>
-
 
 
                         <input  id="exposant.exposantId" class="form-control" type="text" name="exposant.exposantId" th:value="${livre.exposant.exposantId}" hidden>

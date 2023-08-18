@@ -32,9 +32,10 @@
                     <i>Nom d'utilisateur :</i>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-user" aria-hidden="true"></i>
+ </span>
                         </div>
-                        <input id="userName" class="form-control" type="text" name="username" th:value="${user.username}">
+                        <input id="userName" class="form-control" type="text" name="username" th:value="${user.username}" readonly>
                     </div>
 
                     <i>Email :</i>

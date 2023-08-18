@@ -25,20 +25,13 @@
                         </a>
                     </div>
 
-                    <i>ID :</i>
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                        </div>
-                        <input id="id" class="form-control" type="hidden" name="livreId" th:value="${livre.livreId}">
-                        <input class="form-control" type="text" value="" th:value="${livre.livreId}" readonly>
-                    </div>
+                    <input id="id" class="form-control" type="hidden" name="livreId" th:value="${livre.livreId}">
 
 
                     <i>Titre : (*) Ce champ ne doit pas être vide</i> <span class="text-danger" th:errors="${livre.titre}"></span>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-book" aria-hidden="true"></i> </span>
                         </div>
                         <input id="titre" class="form-control" type="text" name="titre" th:value="${livre.titre}">
                     </div>
@@ -46,7 +39,7 @@
                     <i>Auteur :</i>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-map"></i> </span>
+                            <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i> </span>
                         </div>
                         <input id="auteur" class="form-control" type="text" name="auteur" th:value="${livre.auteur}" th:placeholder="${livre.auteur == null or livre.auteur == '' ? 'Indisponible' : ''}">
                         <span class="text-danger" th:errors="${livre.auteur}"></span>
@@ -55,7 +48,7 @@
                     <i>Editeur :</i>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-university" aria-hidden="true"></i></span>
                         </div>
                         <input id="editeur" class="form-control" type="text" name="editeur" th:value="${livre.editeur}" th:placeholder="${livre.editeur == null or livre.editeur == '' ? 'Indisponible' : ''}">
                         <span class="text-danger" th:errors="${livre.editeur}"></span>
@@ -64,7 +57,7 @@
                     <i>Date edition :</i>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-university" aria-hidden="true"></i></span>
                         </div>
                         <input id="dateEdition" class="form-control" type="date" name="dateEdition" th:value="${livre.dateEdition}" th:placeholder="${livre.dateEdition == null or livre.dateEdition == '' ? 'Indisponible' : ''}">
                         <span class="text-danger" th:errors="${livre.dateEdition}"></span>
@@ -73,25 +66,16 @@
                     <i>Prix :</i>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-globe"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-credit-card" aria-hidden="true"></i></span>
                         </div>
                         <input id="prix" class="form-control" type="number" name="prix" th:value="${livre.prix}" th:placeholder="${livre.prix == null ? 'Indisponible' : ''}">
                         <span class="text-danger" th:errors="${livre.prix}"></span>
                     </div>
 
-                    <i>Isbn :</i>
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-home"></i> </span>
-                        </div>
-                        <input id="isbn" class="form-control" type="text" name="isbn" th:value="${livre.isbn}" th:placeholder="${livre.isbn == null or livre.isbn == '' ? 'Indisponible' : ''}">
-                        <span class="text-danger" th:errors="${livre.isbn}"></span>
-                    </div>
-
                     <i>Exposant :</i>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-street-view" aria-hidden="true"></i> </span>
                         </div>
                         <select class="form-control" name="exposant.exposantId" th:value="${livre.exposant.exposantId}">
                             <option th:each="exposant : ${listExposants}"

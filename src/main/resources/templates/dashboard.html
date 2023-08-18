@@ -25,10 +25,12 @@
                             <div>
                                 <h3>Mes informations :</h3>
                             </div>
-
+                            <a th:if="${#authorization.expression('hasRole(''USER'')')}">
                             <a th:href="@{/formLivres/{idExposant}(idExposant=${user.exposant.exposantId})}" class="btn btn-outline-primary">
                                 <i class="fa fa-plus"></i> Ajouter un livre
                             </a>
+                            </a>
+
                         </div>
 
                         <br>
@@ -55,8 +57,10 @@
                                 <tbody>
                                 <tr>
 
+
                                     <td th:text="${user.username}"></td>
                                     <td th:text="${user.email}"></td>
+
 
                                     <a th:if="${#authorization.expression('hasRole(''USER'')')}">
                                     <td>
@@ -91,7 +95,7 @@
                                         </a>
 
                                         <a th:if="${#authorization.expression('hasRole(''USER'')')}">
-                                        <a th:href="@{/editExposant(id=${user.userId})}" class="btn btn-outline-secondary">
+                                        <a th:href="@{/editUser(id=${user.userId})}" class="btn btn-outline-secondary">
                                             <i class="fa fa-pencil"></i>
                                         </a>
                                         </a>

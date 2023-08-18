@@ -1,6 +1,7 @@
 package ma.emsi.db_livre.web;
 
 import jakarta.validation.Valid;
+import ma.emsi.db_livre.entities.Exposant;
 import ma.emsi.db_livre.entities.Livre;
 import ma.emsi.db_livre.repositories.ExposantRepository;
 import ma.emsi.db_livre.repositories.LivreRepository;
@@ -82,15 +83,24 @@ public class LivreController {
     @PostMapping("/saveLivre")
     public String saveLivre(Model model, @Valid Livre livre, BindingResult bindingResult,
                             @RequestParam(defaultValue = "0") int page,
-                            @RequestParam(defaultValue = "") String keyword){
+                            @RequestParam(defaultValue = "") String keyword) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("listExposants", exposantRepository.findAll()); // Récupérer tous les exposants en cas d'erreur
+            model.addAttribute("listExposants", exposantRepository.findAll());
             return "formLivres";
         }
-        livre.setExposant(exposantRepository.findById(livre.getExposant().getExposantId()).orElse(null)); // Récupérer l'exposant à partir de l'ID sélectionné
+
+        // Récupérer l'exposant à partir de l'ID sélectionné
+        Exposant selectedExposant = exposantRepository.findById(livre.getExposant().getExposantId()).orElse(null);
+        if (selectedExposant == null) {
+            return "redirect:/formLivres"; // Rediriger vers le formulaire pour corriger
+        }
+
+        livre.setExposant(selectedExposant);
         livreRepository.save(livre);
-        return "redirect:/listLivres?page="+page+"&keyword="+keyword;
+        return "redirect:/listLivres?page=" + page + "&keyword=" + keyword;
     }
+
+
 
     @GetMapping("/editLivre")
     public String editLivre(Long id, Model model, String keyword, int page){

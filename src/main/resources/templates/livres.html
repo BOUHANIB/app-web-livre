@@ -21,11 +21,6 @@
                         <h3>Liste des livres :</h3>
                     </div>
 
-                    <div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
-                    <a th:href="@{/formLivres}" class="btn btn-outline-primary ml-auto">
-                        <i class="fa fa-plus"></i>New Livre
-                    </a>
-                    </div>
                 </div>
                 <form method="get" th:action="@{listLivres}">
                     <div class="d-flex align-items-center">
@@ -45,7 +40,6 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Titre</th>
                             <th>Auteur</th>
                             <th>Editeur</th>
@@ -55,7 +49,6 @@
                         </thead>
                         <tbody>
                         <tr th:each="livre:${listLivres}">
-                            <td th:text="${livre.livreId}"></td>
                             <td>
                                 <span th:if="${livre.titre} != null" th:text="${livre.titre}"></span>
                                 <span th:unless="${livre.titre}">Indisponible</span>
